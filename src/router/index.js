@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/home/Home'
 import Goods from '@/pages/goods/Goods'
+import Foods from '@/pages/foods/Foods'
 
 Vue.use(Router);
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/goods',
       name: 'Goods',
       component: Goods
+    },
+    {
+      path: '/foods',
+      name: 'Foods',
+      component: Foods
     }
   ]
 })

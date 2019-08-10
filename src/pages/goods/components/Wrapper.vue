@@ -5,6 +5,8 @@
           <li v-for="item in testMenu"
               :key="item.id"
               class="menu-item"
+              @click="choiceItem(item.id)"
+              ref="menuItem"
           >
             <span class="text">
               {{item.name}}
@@ -14,7 +16,9 @@
       </div>
       <div class="foods-wrapper" ref="fondWrapper">
         <ul>
+
           <li v-for="(item, index) in testLIst" :key="index" class="fond-list">
+            <router-link to="/foods">
             <h1 class="title">三階のタイトル{{item}}</h1>
             <ul>
               <li v-for="items in sabuLIst" class="food-item">
@@ -35,6 +39,7 @@
                 </div>
               </li>
             </ul>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -58,12 +63,17 @@
             this.$nextTick(()=>{
                 this._initScroll();
             });
-
        },
         methods: {
             _initScroll(){
                 this.meunScroll = new Bscroll(this.$refs.menuWrapper, {});
                 this.foodsScroll = new Bscroll(this.$refs.fondWrapper, {});
+            },
+            choiceItem(id){
+                this.$refs.menuItem.forEach((dom)=>{
+                    dom.style.background = "#f3f3f7"
+                });
+                this.$refs.menuItem[id-1].style.background= "#fff"
             }
         }
     }

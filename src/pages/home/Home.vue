@@ -6,6 +6,7 @@
     <home-swiper/>
     <home-service-bar/>
     <home-icons/>
+    <home-footer/>
   </div>
 </template>
 
@@ -16,6 +17,7 @@
     import HomeSwiper from './components/Swiper'
     import HomeServiceBar from './components/ServiceBar'
     import HomeIcons from './components/Icons'
+    import HomeFooter from './components/footer'
     export default {
         name: "Home",
         components:{
@@ -24,7 +26,8 @@
             HomeSearch,
             HomeSwiper,
             HomeServiceBar,
-            HomeIcons
+            HomeIcons,
+            HomeFooter
         }
     }
 </script>

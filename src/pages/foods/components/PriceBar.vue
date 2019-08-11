@@ -47,7 +47,6 @@
     width 1rem
     text-align center
     float right
-    padding-right .3rem
     .icon
       padding-top .2rem
       width: 1.5em;

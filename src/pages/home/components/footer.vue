@@ -63,11 +63,14 @@
 
 <style scoped lang="stylus">
 .footerBar
+  background white
+  margin-top .1rem
   border-top: 1px solid #e5e5e5;
-  position fixed
   bottom 0
   height 50px
   width 100%
+  position fixed
+  z-index 1001
   .footerItem
    left 0
    right 0

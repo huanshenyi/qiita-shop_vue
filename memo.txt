@@ -1,3 +1,10 @@
 
 assets/styles/mixins.styl => スタイルのパッケージ化
 assets/styles/varibles.st.styl => 文字スタイルのパッケージ化
+
+性能の最適化
+keep-alive
+/App.vue
+     <keep-alive>
+        <router-view/>
+      </keep-alive>

@@ -30,7 +30,7 @@
             pages() {
                 const pages = [];
                 this.iconList.forEach((item, index)=>{
-                    const page = Math.floor(index / 8) //現在のiconが表示するページの何ページに表示すべき,2(index)/8=0.25 == 0 ==1ページめい
+                    const page = Math.floor(index / 8); //現在のiconが表示するページの何ページに表示すべき,2(index)/8=0.25 == 0 ==1ページめい
                     if (!pages[page]){
                         pages[page] = []
                     }

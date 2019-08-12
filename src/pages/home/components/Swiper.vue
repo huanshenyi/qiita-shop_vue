@@ -22,7 +22,8 @@
         data(){
             return {
                 swiperOption: {
-                    pagination: '.swiper-pagination'
+                    pagination: '.swiper-pagination',
+                    autoplay:1500
                 },
                 swiperList : [{
                     id: '0001',

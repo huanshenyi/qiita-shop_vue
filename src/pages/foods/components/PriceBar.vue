@@ -27,6 +27,7 @@
 <style scoped lang="stylus">
   @import "../../../assets/styles/varibles.st.styl"
 .priceBar
+  margin-top .1rem
   height .86rem
   line-height .86rem
   .bar-left
@@ -48,8 +49,10 @@
     text-align center
     float right
     .icon
-      padding-top .2rem
-      width: 1.5em;
-      height: 1.5em;
+      padding 0 .2rem
+      padding-top .1rem
+      width: 1.8em;
+      height: 1.8em;
       overflow: hidden;
+      border-left: 1px solid #e5e5e5;
 </style>

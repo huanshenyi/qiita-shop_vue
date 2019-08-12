@@ -1,0 +1,3 @@
+
+assets/styles/mixins.styl => スタイルのパッケージ化
+assets/styles/varibles.st.styl => 文字スタイルのパッケージ化

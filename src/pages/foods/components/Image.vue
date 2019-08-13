@@ -3,10 +3,7 @@
     <swiper :options="swiperOption">
       <!-- slides -->
       <swiper-slide>
-        <img class="swiper-img" src="//img12.360buyimg.com/imgzone/jfs/t1/10433/27/11408/259233/5c6e05a7E85440065/44fd8b61455d0790.jpg!q70.dpg.webp" alt="">
-      </swiper-slide>
-      <swiper-slide>
-        <img class="swiper-img" src="//m.360buyimg.com/mobilecms/s843x843_jfs/t24217/234/2598606598/960056/57a36d33/5b875b86N2c150cb9.png.webp" alt="">
+        <img class="swiper-img" :src="foodContent.goods_front_image" alt="">
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -16,6 +13,7 @@
 <script>
     export default {
         name: "FoodsImage",
+        props:['foodContent'],
         data(){
             return {
                 swiperOption: {
@@ -31,7 +29,7 @@
     background #fff
   .wrapper
     height: 375px;
-    width 100%
+    width: 375px;
     z-index 30
     .swiper-img
       height: 375px;

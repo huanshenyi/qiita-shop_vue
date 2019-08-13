@@ -1,10 +1,10 @@
 <template>
     <div>
-      <foods-image/>
+      <foods-image :foodContent='foodContent'/>
       <foods-header/>
-      <foods-price-bar/>
+      <foods-price-bar :foodContent='foodContent'/>
       <foods-vip-bar/>
-      <foods-content-bar/>
+      <foods-content-bar :foodContent='foodContent'/>
       <foods-footer/>
       <div class="content"></div>
     </div>
@@ -17,6 +17,7 @@
     import FoodsVipBar from './components/vipBar'
     import FoodsContentBar from './components/ContentBar'
     import FoodsFooter from './components/Footer'
+    import {getGood} from '../../api/api'
     export default {
         props: {
             food: {
@@ -31,6 +32,23 @@
             FoodsVipBar,
             FoodsContentBar,
             FoodsFooter
+        },
+        data(){
+          return {
+              productId:'',
+              foodContent:''
+          }
+        },
+        mounted() {
+            this.productId = this.$route.params.id;
+            this.getGoodContent()
+        },
+        methods:{
+            getGoodContent(){
+                getGood({id:this.productId}).then((response)=>{
+                    this.foodContent = response.data
+                })
+            }
         }
     }
 </script>

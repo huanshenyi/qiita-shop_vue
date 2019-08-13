@@ -5,8 +5,11 @@
         <swiper-slide class="span-info">おすすめ</swiper-slide>
         <swiper-slide class="swiper-slide"
                       v-for="swiperSlide in categorylist"
-                      :key="swiperSlide.id">
-          {{swiperSlide.name}}
+                      :key="swiperSlide.id"
+        >
+          <div @click="goGoods(swiperSlide.id)">
+            {{swiperSlide.name}}
+          </div>
         </swiper-slide>
       </swiper>
     </div>
@@ -22,6 +25,11 @@
         data(){
             return {
                 swiperOption: {slidesPerView : 5, slidesPerGroup : 5},
+            }
+        },
+        methods:{
+            goGoods(id){
+                this.$router.push(`/goods/${id}`)
             }
         }
     }

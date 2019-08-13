@@ -1,23 +1,23 @@
 <template>
   <div>
-    <router-link
-      to="/goods"
-      tag="div"
+    <div
+      @click="backTo"
       class="header-abs"
-      v-show="showAbs">
+      v-show="showAbs
+     ">
       <div class="iconfont header-abs-back">&#xe606;</div>
-    </router-link>
+    </div>
     <div
       class="header-fixed"
       v-show="!showAbs"
       :style="opacityStyle"
     >
-      <router-link to="/goods">
+      <div @click="backTo">
         <svg class="icon">
           <use xlink:href="#iconarrow-left"></use>
         </svg>
-      </router-link>
-      商品詳細
+      </div>
+      商品詳細1
     </div>
   </div>
 </template>
@@ -46,10 +46,15 @@
                 }else {
                     this.showAbs = true
                 }
+            },
+            backTo(){
+                window.history.back(-1);
             }
         },
-        activated() {
-            window.addEventListener('scroll',this.handleScroll)
+        mounted() {
+            window.addEventListener('scroll',() => {
+                this.handleScroll();
+            }, false)
         }
     }
 </script>
@@ -82,6 +87,7 @@
  z-index 2
  background white
  .icon
+   padding-left .1rem
    position absolute
    top 0
    left 0

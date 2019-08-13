@@ -5,12 +5,12 @@
       <span class="titleTime">更新日: 2019年07月02日(火)</span>
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item in recommendedList" :key="item.id">
-          <img :src="item.img" class="item-img"/>
+      <li class="item border-bottom" v-for="item in hotList" :key="item.id">
+          <img :src="item.goods_front_image" class="item-img"/>
         <div class="item-info">
-          <p class="item-title">{{item.title}}</p>
-          <p class="item-price">{{item.price}}</p>
-          <p class="item-price-2">{{item.price1}}</p>
+          <p class="item-title">{{item.name}}</p>
+          <p class="item-price">{{item.market_price}}円</p>
+          <p class="item-price-2">{{item.shop_price}}円(税込)</p>
           <svg class="icon">
             <use xlink:href="#iconqicheqianlian-1"></use>
           </svg>
@@ -23,10 +23,11 @@
 <script>
     export default {
         name: "HomeRecommended",
+        props:{
+            hotList:Array
+        },
         data(){
             return{
-                recommendedList:[{id:'001',title:'《30年度産》新潟コシヒカリ',price:'1980円',price1:'(税込2138円)',img:'http://sm.r10s.jp/item/54/4979911762054.jpg'},
-                    {id:'002',title:'みなさまのお墨付き ブロッコリー （冷凍）',price:'170円',price1:'(税込183円)',img:'https://sm.r10s.jp/item/06/4973450148706.jpg'}]
             }
         }
     }

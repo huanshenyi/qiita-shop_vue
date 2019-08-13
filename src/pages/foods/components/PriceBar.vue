@@ -2,16 +2,16 @@
     <div class="priceBar">
      <div class="bar-left">
        <div class="no-tex">
-         2000円
+         {{foodContent.market_price}}円
        </div>
      </div>
      <div class="bar-left_two">
        <div class="tex">
-         2100円(税込)
+         {{foodContent.shop_price}}円(税込)
        </div>
      </div>
      <div class="bar_right">
-       <svg class="icon">
+       <svg class="icon" @click="havFoods">
          <use xlink:href="#iconguanzhu"></use>
        </svg>
      </div>
@@ -20,7 +20,18 @@
 
 <script>
     export default {
-        name: "FoodsPriceBar"
+        name: "FoodsPriceBar",
+        props:['foodContent'],
+        data(){
+            return{
+                content:this.foodContent
+            }
+        },
+        methods:{
+            havFoods(){
+                alert(1)
+            }
+        }
     }
 </script>
 

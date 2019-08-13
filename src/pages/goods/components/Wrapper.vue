@@ -2,10 +2,10 @@
     <div class="wrapper">
       <div class="menu-wrapper" ref="menuWrapper">
         <ul>
-          <li v-for="item in menuList"
+          <li v-for="(item,index) in menuList"
               :key="item.id"
               class="menu-item"
-              @click="choiceItem(item.id)"
+              @click="choiceItem(index)"
               ref="menuItem"
           >
             <span class="text">
@@ -17,35 +17,37 @@
       <div class="foods-wrapper" ref="fondWrapper">
         <ul>
 
-          <li v-for="(item, index) in testLIst" :key="index" class="fond-list">
-            <router-link to="/foods" tag="li">
-            <h1 class="title">三階のタイトル{{item}}</h1>
+          <li v-for="item in rightMenuTitles" :key="item.id" class="fond-list">
+            <h1 class="title">{{item.name}}</h1>
             <ul>
-              <li v-for="items in sabuLIst" class="food-item">
+              <li v-for="it in item.sub_content[0]" class="food-item" :key="it.id" @click="toFoods(it.id)">
                 <div class="icon">
-                  <img width="57" height="57" src="//m.360buyimg.com/babel/s231x231_jfs/t30022/196/396908357/131040/c86e6534/5bf21f3bN13e57a8a.jpg!q70.dpg" alt="">
+                  <img width="57" height="57" :src="it.goods_front_image" alt="">
                 </div>
                 <div class="content">
-                  <h2 class="name" style="margin:  2px 0 8px 0; height: 14px;line-height: 14px;font-size: 14px;color: rgb(7,17,27);
-                  ">商品name{{items}}</h2>
-                  <p class="desc" style="line-height:  10px;font-size: 10px;color: #93999f;margin-bottom: 8px
-                   ">商品詳細</p>
+                  <h2 class="name" style="width: 4rem; overflow:hidden;white-space :nowrap ;text-overflow: ellipsis;margin:  2px 0 8px 0; height: 14px;line-height: 14px;font-size: 14px;color: rgb(7,17,27);
+                  ">{{it.name}}</h2>
+                  <p class="desc" style="width: 4rem;overflow:hidden;white-space :nowrap ;text-overflow: ellipsis;line-height:  10px;font-size: 10px;color: #93999f;margin-bottom: 8px
+                   ">{{it.goods_brief}}</p>
                   <div class="extra" style="line-height:  10px;font-size: 10px;color: #93999f;line-height: 10px">
-                    <span>人気food.click</span>
-                    <span>人気あるかどうか</span>
+                    <span v-if="it.is_hot">
+                      人気
+                    </span>
+                    <span v-else>
+                      普通
+                    </span>
                   </div>
                   <div class="price" style="font-weight: 700;line-height: 24px">
                     <span class = "now" style="margin-right: 8px;font-size: 14px; color: rgb(240, 20,20)">
-                      税抜金額
+                      {{it.shop_price}}円
                     </span>
-                    <span class="old" style="text-decoration: line-through;font-size: 10px;color: #93999f">
-                      税込価格
+                    <span class="old" style="font-size: 10px;color: #93999f">
+                      {{it.market_price}}円(税込)
                     </span>
                   </div>
                 </div>
               </li>
             </ul>
-            </router-link>
           </li>
         </ul>
       </div>
@@ -57,15 +59,11 @@
     export default {
         name: "Wrapper",
         props:{
-            menuList:Array
+            menuList:Array,
         },
         data (){
             return{
-                testMenu:[{id:'1',name:'item1'},{id:'2',name:'item2'},{id:'3',name:'item3'},
-                    {id:'4',name:'item4'},{id:'5',name:'item5'},{id:'6',name:'item6'},
-                    {id:'7',name:'item7'},{id:'8',name:'item8'},{id:'9',name:'item9'},{id:'10',name:'item10'},{id:'11',name:'item11'},{id:'12',name:'item12'}],
-                testLIst :[1,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,25,26,27,6,7,8,9,10,11,12,13,14,15,16,17,18,19,],
-                sabuLIst :[1,2,4]
+                rightMenuTitles:''
             }
         },
        mounted(){
@@ -82,9 +80,13 @@
                 this.$refs.menuItem.forEach((dom)=>{
                     dom.style.background = "#f3f3f7"
                 });
-                this.$refs.menuItem[id-1].style.background= "#fff"
+                this.$refs.menuItem[id].style.background= "#fff";
+                this.rightMenuTitles = this.menuList[id].sub_cat;
+            },
+            toFoods(id){
+                this.$router.push(`/foods/${id}`)
             }
-        }
+        },
     }
 </script>
 

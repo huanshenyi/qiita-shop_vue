@@ -7,7 +7,7 @@
     <home-service-bar/>
     <home-icons/>
     <home-info-bar/>
-    <home-recommended/>
+    <home-recommended :hotList="hotList"/>
     <home-footer-top/>
     <home-footer/>
   </div>
@@ -24,7 +24,7 @@
     import HomeRecommended from './components/Recommended'
     import HomeFooterTop from './components/FooterTop'
     import HomeFooter from './components/footer'
-    import { getCategory} from '../../api/api';
+    import { getCategory,getHotGoods} from '../../api/api';
     export default {
         name: "Home",
         components:{
@@ -41,16 +41,25 @@
         },
         data() {
             return{
-                allCategoryList:[]
+                allCategoryList:[],
+                hotList:[]
             }
         },
         mounted() {
-          this.getDetails()
+          this.getDetails();
+          this.getHotGoodsList();
         },
         methods:{
             getDetails(){
                 getCategory({}).then((response)=>{
                     this.allCategoryList = response.data;
+                }).catch((err)=>{
+                    console.log(err)
+                })
+            },
+            getHotGoodsList(){
+                getHotGoods({}).then((response)=>{
+                    this.hotList = response.data.results;
                 }).catch((err)=>{
                     console.log(err)
                 })

@@ -1,13 +1,14 @@
 <template>
  <div class="contentBar">
-  <div class="title">美味いかに美味いかに美味いかに美味</div>
-  <div class="content">美味いかに美味いかに美味いかに美味いかに美味いかに美味いかに美味いかに美味いかに美味いかに</div>
+  <div class="title">{{foodContent.name}}</div>
+  <div class="content">{{foodContent.goods_brief}}</div>
  </div>
 </template>
 
 <script>
     export default {
-        name: "FoodsContentBar"
+        name: "FoodsContentBar",
+        props:['foodContent']
     }
 </script>
 
@@ -22,7 +23,6 @@
     font-size: 16px;
   .content
     overflow: hidden;
-    height: 30px;
     position: relative;
     padding 5px 20px 0 0;
     color: #999;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <home-header/>
-    <home-bar/>
+    <home-bar :categorylist="allCategoryList" />
     <home-search/>
     <home-swiper/>
     <home-service-bar/>
@@ -24,6 +24,7 @@
     import HomeRecommended from './components/Recommended'
     import HomeFooterTop from './components/FooterTop'
     import HomeFooter from './components/footer'
+    import { getCategory} from '../../api/api';
     export default {
         name: "Home",
         components:{
@@ -37,6 +38,23 @@
             HomeRecommended,
             HomeFooterTop,
             HomeInfoBar
+        },
+        data() {
+            return{
+                allCategoryList:[]
+            }
+        },
+        mounted() {
+          this.getDetails()
+        },
+        methods:{
+            getDetails(){
+                getCategory({}).then((response)=>{
+                    this.allCategoryList = response.data;
+                }).catch((err)=>{
+                    console.log(err)
+                })
+            }
         }
     }
 </script>

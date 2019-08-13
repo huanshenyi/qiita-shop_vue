@@ -2,7 +2,7 @@
     <div class="wrapper">
       <div class="menu-wrapper" ref="menuWrapper">
         <ul>
-          <li v-for="item in testMenu"
+          <li v-for="item in menuList"
               :key="item.id"
               class="menu-item"
               @click="choiceItem(item.id)"
@@ -56,6 +56,9 @@
     import Bscroll from 'better-scroll'
     export default {
         name: "Wrapper",
+        props:{
+            menuList:Array
+        },
         data (){
             return{
                 testMenu:[{id:'1',name:'item1'},{id:'2',name:'item2'},{id:'3',name:'item3'},

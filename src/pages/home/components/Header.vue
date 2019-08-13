@@ -14,7 +14,7 @@
         </svg>
       </div>
       <div class="header-right_one">
-        <router-link to="/goods">
+        <router-link to="/goods/1">
         <svg class="icon">
            <use xlink:href="#iconmore"></use>
         </svg>

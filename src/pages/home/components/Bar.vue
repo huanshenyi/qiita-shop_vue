@@ -2,10 +2,12 @@
   <div class="bar">
     <div class="wrapper">
       <swiper :options="swiperOption">
-        <swiper-slide class="span-info">人気</swiper-slide>
+        <swiper-slide class="span-info">おすすめ</swiper-slide>
         <swiper-slide class="swiper-slide"
-                      v-for="(swiperSlide,index) in swiperSlides"
-                      :key="index">{{swiperSlide}}</swiper-slide>
+                      v-for="swiperSlide in categorylist"
+                      :key="swiperSlide.id">
+          {{swiperSlide.name}}
+        </swiper-slide>
       </swiper>
     </div>
   </div>
@@ -14,29 +16,36 @@
 <script>
     export default {
         name: "HomeBar",
+        props:{
+            categorylist:Array
+        },
         data(){
             return {
                 swiperOption: {slidesPerView : 5, slidesPerGroup : 5},
-                swiperSlides: ['描き', 'キャンプ', 'スポーツ', 'python', '成人', 'ドラマ', 'ニュース', '映画', 'ペット', 'キャンプ']
             }
-        },
+        }
     }
 </script>
 
 <style scoped lang="stylus">
+  @import "../../../assets/styles/varibles.st.styl"
 .bar
   height .7rem
   line-height .7rem
   .swiper-slide
+    margin-right .2rem
+    height .7rem
+    line-height .7rem
     width .1rem
     color #333
     text-align center
     font-size .3rem
-    overflow hidden
-    text-overflow ellipsis
+    ellipsis()
   .span-info
+    text-align center
     color  #87cefa
     font-weight:bold
+    ellipsis()
   .span-info:before
     content ""
     position absolute

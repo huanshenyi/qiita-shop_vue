@@ -1,7 +1,7 @@
 <template>
     <div class="search">
       <div class="search-left">
-        <router-link to="/goods">
+        <router-link to="/goods/1" >
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#iconel-icon-gengduo"></use>
           </svg>

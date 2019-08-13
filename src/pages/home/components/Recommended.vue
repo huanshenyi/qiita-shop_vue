@@ -70,6 +70,7 @@
       line-height .3rem
       color #ccc
     .icon
+      float right
       line-height .44rem
       margin-top .1rem
       width: 2em;

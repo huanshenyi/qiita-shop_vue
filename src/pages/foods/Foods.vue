@@ -5,6 +5,7 @@
       <foods-price-bar :foodContent='foodContent'/>
       <foods-vip-bar/>
       <foods-content-bar :foodContent='foodContent'/>
+      <foods-review-bar/>
       <foods-footer/>
       <div class="content"></div>
     </div>
@@ -16,6 +17,7 @@
     import FoodsPriceBar from './components/PriceBar'
     import FoodsVipBar from './components/vipBar'
     import FoodsContentBar from './components/ContentBar'
+    import FoodsReviewBar from './components/ReviewBar'
     import FoodsFooter from './components/Footer'
     import {getGood} from '../../api/api'
     export default {
@@ -31,6 +33,7 @@
             FoodsPriceBar,
             FoodsVipBar,
             FoodsContentBar,
+            FoodsReviewBar,
             FoodsFooter
         },
         data(){

@@ -9,9 +9,11 @@
       </div>
       <div class="header-title">タイトル</div>
       <div class="header-right">
-        <svg class="icon">
-          <use xlink:href="#iconicon"></use>
-        </svg>
+        <router-link to="/login">
+          <svg class="icon">
+            <use xlink:href="#iconicon"></use>
+          </svg>
+        </router-link>
       </div>
       <div class="header-right_one">
         <router-link to="/goods/1">

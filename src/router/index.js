@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/pages/home/Home'
 import Goods from '@/pages/goods/Goods'
 import Foods from '@/pages/foods/Foods'
+import Login from "@/pages/login/Login";
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/foods/:id',
       name: 'Foods',
       component: Foods
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })

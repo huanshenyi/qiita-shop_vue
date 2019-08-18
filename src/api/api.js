@@ -28,7 +28,7 @@ export const getGood = (params)=>{
 //キーワードで商品検索
 export const searchDoods = (params)=>{
   return axios.get(`${localHost}/goods/?search=${params.keyword}`)
-}
+};
 
 //売れて商品
 export const getHotGoods = (params)=>{
@@ -42,4 +42,14 @@ export const getHotGoods = (params)=>{
 //ログイン
 export const login = params => {
   return axios.post(`${localHost}/login/`, params)
+};
+
+//サーチ
+export const search = (params) =>{
+  if(params){
+    return axios.get(`${localHost}/goods/?search=${params}`);
+  }else {
+    return axios.get(`${localHost}/goods/?search=`);
+  }
+
 };

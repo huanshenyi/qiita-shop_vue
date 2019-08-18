@@ -5,7 +5,7 @@
           <use xlink:href="#iconarrow-left"></use>
         </svg>
       </div>
-      <div class="header-main">何かこう</div>
+      <div class="header-main">真ん中</div>
       <div class="header-right">右側</div>
     </div>
 </template>
@@ -24,7 +24,6 @@
 <style scoped lang="stylus">
 .list-header
   height .86rem
-  line-height .86rem
   background white
   border-bottom #93999f solid .01rem
   .header-left
@@ -35,4 +34,13 @@
       margin-top .18rem
       width: .5rem;
       height: .5rem;
+  .header-main
+   margin-left 2.5rem
+   line-height .86rem
+   float left
+   height 100%
+  .header-right
+    line-height .86rem
+    float right
+    height 100%
 </style>

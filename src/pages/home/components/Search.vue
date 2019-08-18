@@ -25,7 +25,6 @@
         methods :{
             seardata(){
                 let keywork = this.inputData ? this.inputData : '';
-                console.log(this.inputData);
                 this.$router.push(`/list/${keywork}`);
             }
         }

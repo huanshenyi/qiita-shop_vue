@@ -8,8 +8,8 @@
         </router-link>
       </div>
       <div class="search-input">
-        <span class="iconfont" style="padding-left: .3rem" @click="seardata">&#xe603;</span>
-        <input type="text" placeholder="キーワードから探す" class="inputData" v-model="inputData">
+          <span class="iconfont" style="padding-left: .3rem" @click="seardata">&#xe603;</span>
+        <input type="text" placeholder="キーワードから探す" class="inputData" v-model="inputData" @keyup.enter="seardata">
       </div>
     </div>
 </template>
@@ -24,7 +24,9 @@
         },
         methods :{
             seardata(){
-                console.log(this.inputData)
+                let keywork = this.inputData ? this.inputData : '';
+                console.log(this.inputData);
+                this.$router.push(`/list/${keywork}`);
             }
         }
     }

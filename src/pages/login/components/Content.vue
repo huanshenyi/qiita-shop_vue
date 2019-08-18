@@ -6,22 +6,22 @@
       <div class="itemContent">
         <div class="login">
           <div class="input-container">
-            <input type="text" class="username" placeholder="ユーザーネーム/アドレス">
+            <input type="text" class="username" v-model="userName" placeholder="ユーザーネーム/アドレス">
           </div>
           <div class="input-container">
-            <input type="text" class="username" placeholder="パスワード">
+            <input type="password" class="username" v-model="passWord" placeholder="パスワード">
             <div  class="agin">パスワード再発行</div>
           </div>
         </div>
-         <div class="loginbtn">ログイン</div>
+         <div class="loginbtn" @click="loginfuc">ログイン</div>
          <div class="registration">
            <div class="registerbtn">新規登録</div>
          </div>
          <div class="logintype">
           <div class="quick-login">
             <h4 class="txt-otherLogin">それ以外のログイン</h4>
-            <a href="" class="icon">dww</a>
-            <a href="" class="icon">dww</a>
+            <a href="" class="icon">GitHub</a>
+            <a href="" class="icon">Qiita</a>
           </div>
          <div class="agreement-tips">
            <p>https://github.com/huanshenyi</p>
@@ -32,8 +32,29 @@
 </template>
 
 <script>
+    import { login } from '../../../api/api'
     export default {
-        name: "LoginContent"
+        name: "LoginContent",
+        data() {
+            return {
+                userName:'',
+                passWord:'',
+                error:false,
+                userNameError:'',
+                parseWordError:''
+            }
+        },
+        methods:{
+            loginfuc(){
+                login({username: this.userName,
+                    password:this.passWord}).then((response)=>{
+                    console.log(response.data);
+                    this.$router.push('/')
+                }).catch((err)=>{
+                    console.log(err)
+                })
+            }
+        }
     }
 </script>
 

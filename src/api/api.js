@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-
+let host = '';
 let localHost = 'http://127.0.0.1:8000';
 
 //商品カテゴリー
@@ -38,4 +37,9 @@ export const getHotGoods = (params)=>{
   }else {
     return axios.get(`${localHost}/goods/?pricemin=&pricemax=&is_hot=true&topcategory=`);
   }
+};
+
+//ログイン
+export const login = params => {
+  return axios.post(`${localHost}/login/`, params)
 };
